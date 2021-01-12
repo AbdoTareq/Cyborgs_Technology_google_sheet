@@ -8,6 +8,7 @@ export 'package:flutter_template/utils/my_translation.dart';
 export 'package:velocity_x/velocity_x.dart';
 // models
 export 'models/failure.dart';
+export 'models/record.dart';
 // network
 export 'network/network.dart';
 // dependency injection

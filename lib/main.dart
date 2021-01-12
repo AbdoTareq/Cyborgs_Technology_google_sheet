@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_template/utils/my_translation.dart';
-import 'package:flutter_template/view/HomePage.dart';
+import 'package:flutter_template/view/pages/form_submit_page.dart';
 import 'package:flutter_template/view/animated_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplash(
         imagePath: 'assets/images/logo.png',
         title: 'app_name',
-        home: HomePage(),
+        home: FormSubmitPage(),
         duration: 2500,
         type: AnimatedSplashType.StaticDuration,
       ),
