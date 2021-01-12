@@ -1,4 +1,3 @@
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_template/utils/my_translation.dart';
@@ -12,8 +11,6 @@ import 'constants.dart';
 
 Future<void> main() async {
   await GetStorage.init();
-  await FirebaseAdMob.instance.initialize(appId: 'ca-app-pub-3940256099942544~3347511713');
-
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: kPrimaryColor // status bar color
       ));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
