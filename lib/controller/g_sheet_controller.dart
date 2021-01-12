@@ -8,7 +8,9 @@ class GSheetController extends GetxController {
   TextEditingController mailTextController;
   TextEditingController mobileTextController;
   TextEditingController modelNumTextController;
+
   GSheetManager gSheetManager = GSheetManager();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   final _purchaseDate = DateTime.now().toString().obs;
   get purchaseDate => this._purchaseDate.value;
@@ -21,42 +23,42 @@ class GSheetController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    records = await gSheetManager.getAll();
-    for (var record in records) {
-      logger.i("${record.toString()}");
-    }
     nameTextController = TextEditingController();
     mailTextController = TextEditingController();
     mobileTextController = TextEditingController();
     modelNumTextController = TextEditingController();
+    records = await gSheetManager.getAll();
   }
 
   clear() {
-    nameTextController.text = '';
-    mailTextController.text = '';
-    mobileTextController.text = '';
-    modelNumTextController.text = '';
+    nameTextController.clear();
+    mailTextController.clear();
+    mobileTextController.clear();
+    modelNumTextController.clear();
     purchaseDate = DateTime.now().toString();
   }
 
   Future<void> submitSheetInfo() async {
-    Get.dialog(Center(child: CircularProgressIndicator()), barrierDismissible: false);
-    final record = Record(
-      id: _records.length + 2,
-      name: nameTextController.text,
-      mail: mailTextController.text,
-      mobile: mobileTextController.text,
-      modelNum: modelNumTextController.text,
-      purchaseDate: purchaseDate,
-    );
-    if (await gSheetManager.insert(record)) {
-      if (Get.isDialogOpen) {
-        Get.back();
+    if (formKey.currentState.validate()) {
+      Get.dialog(Center(child: CircularProgressIndicator()), barrierDismissible: false);
+      final record = Record(
+        id: _records.length + 2,
+        name: nameTextController.text,
+        mail: mailTextController.text,
+        mobile: mobileTextController.text,
+        modelNum: modelNumTextController.text,
+        purchaseDate: purchaseDate,
+      );
+      logger.i("$record");
+      logger.i("${nameTextController.text}");
+      if (await gSheetManager.insert(record)) {
+        if (Get.isDialogOpen) {
+          Get.back();
+        }
+        clear();
+        records = await gSheetManager.getAll();
+        showSimpleDialog(title: 'Sucess', text: 'row inserted');
       }
-      showSimpleDialog(title: 'Sucess', text: 'row inserted');
-      records = await gSheetManager.getAll();
-
-      clear();
     }
   }
 
@@ -68,8 +70,8 @@ class GSheetController extends GetxController {
       if (Get.isDialogOpen) {
         Get.back();
       }
-      showSimpleDialog(title: 'Sucess', text: 'row deleted');
       records = await gSheetManager.getAll();
+      showSimpleDialog(title: 'Sucess', text: 'row deleted');
     }
   }
 
