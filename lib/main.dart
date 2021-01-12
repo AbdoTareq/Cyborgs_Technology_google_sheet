@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       initialBinding: AppBinding(),
       home: AnimatedSplash(
         imagePath: 'assets/images/logo.png',
-        title: 'Digital clinic',
+        title: 'app_name',
         home: HomePage(),
         duration: 2500,
         type: AnimatedSplashType.StaticDuration,

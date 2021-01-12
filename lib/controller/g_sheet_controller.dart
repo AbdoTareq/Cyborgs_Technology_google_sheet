@@ -1,18 +1,35 @@
-import 'package:flutter_template/utils/utils.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gsheets/gsheets.dart';
-import 'package:flutter_template/export.dart';
+
 import '../export.dart';
 
 class GSheetController extends GetxController {
-  getSheetInfo() async {
-    // init GSheets
-    final gsheets = GSheets(credentials);
-    // fetch spreadsheet by its id
-    final ss = await gsheets.spreadsheet(spreadsheetId);
-    logger.i("$ss");
-    // get worksheet by its title
-    final sheet = ss.worksheetByTitle('products');
-    logger.i("$sheet");
+  TextEditingController nameTextController;
+  TextEditingController mobileTextController;
+  TextEditingController modelNumTextController;
+
+  final _purchaseDate = DateTime(2021).obs;
+  get purchaseDate => this._purchaseDate.value;
+  set purchaseDate(value) => this._purchaseDate.value = value;
+
+  @override
+  void onInit() async {
+    super.onInit();
+    nameTextController = TextEditingController();
+    mobileTextController = TextEditingController();
+    modelNumTextController = TextEditingController();
+  }
+
+  Future<void> submitSheetInfo() async {
+    
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    nameTextController?.dispose();
+    mobileTextController?.dispose();
+    modelNumTextController?.dispose();
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_template/constants.dart';
+import 'package:get/get.dart';
 
 Widget _home;
 Function _customFunction;
@@ -95,7 +96,7 @@ class _AnimatedSplashState extends State<AnimatedSplash>
                     height: 20,
                   ),
                   Text(
-                    _title,
+                    _title.tr,
                     style: TextStyle(
                         color: kPrimaryColor,
                         fontWeight: FontWeight.bold,

@@ -4,6 +4,7 @@ class MyTranslation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'ar': {
+          'app_name': 'جوجل شيت',
           'under_dev': 'الخاصية مازالت تحت التطوير',
           'login': 'تسجيل الدخول',
           'watch': 'انتبه!',
@@ -78,6 +79,7 @@ class MyTranslation extends Translations {
           'check_network': 'تأكد من تشغيل الانترنت',
         },
         'en': {
+          'app_name': 'Google sheet',
           'tickets': 'Tickets',
           'map': 'Map',
           'history': 'History',
