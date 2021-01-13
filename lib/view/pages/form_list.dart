@@ -42,7 +42,12 @@ class FormListPage extends GetView<GSheetController> {
                         ),
                         ListTile(
                           onTap: () {},
-                          title: controller.records[index].purchaseDate.toString().text.make(),
+                          title: googleSheetsDateBaseNumber
+                              .add(Duration(
+                                  days: int.tryParse(controller.records[index].purchaseDate)))
+                              .toString()
+                              .text
+                              .make(),
                         ),
                         RaisedButton(
                             child: 'delete record'.tr.text.make(),

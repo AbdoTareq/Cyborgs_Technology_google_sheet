@@ -31,6 +31,7 @@ const credentials = r'''
 // your spreadsheet id that exists in url
 const spreadsheetId = '1xgMxE0fkLKVqXC3nSj5QtuJXAMjSlljIHibyrDjsDKE';
 const sheetName = 'records';
+final DateTime googleSheetsDateBaseNumber = new DateTime(1899, 12, 30);
 
 // styles
 final Color kbackgroundColor = Colors.grey[300];
