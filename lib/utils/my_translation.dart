@@ -77,6 +77,7 @@ class MyTranslation extends Translations {
           'cant_locate_any_near_station': 'لم نتمكن من تحديد أقرب محطة',
           'is_the_nearest_station': ' هي أقرب محطة',
           'check_network': 'تأكد من تشغيل الانترنت',
+          'name': 'name'
         },
         'en': {
           'app_name': 'Google sheet',
@@ -116,6 +117,7 @@ class MyTranslation extends Translations {
           'is_the_nearest_station': ' is the nearest station',
           'check_network': 'Check wifi or data connection',
           'language': 'ِArabic language',
+          'name': 'الاسم'
         }
       };
 }

@@ -11,7 +11,7 @@ class FormSubmitPage extends GetView<GSheetController> {
     return Scaffold(
       drawer: AppDrawer(),
       appBar: AppBar(
-        title: Text('Google Sheet'),
+        title: Text('app_name'.tr),
       ),
       body: Container(
           padding: const EdgeInsets.all(8.0),
@@ -22,7 +22,7 @@ class FormSubmitPage extends GetView<GSheetController> {
               children: [
                 TextInput(
                   tEController: controller.nameTextController,
-                  hint: 'name',
+                  hint: 'name'.tr,
                   validateMessage: 'empty',
                 ),
                 TextInput(
