@@ -40,6 +40,10 @@ class FormListPage extends GetView<GSheetController> {
                           onTap: () {},
                           title: controller.records[index].modelNum.text.make(),
                         ),
+                        ListTile(
+                          onTap: () {},
+                          title: controller.records[index].purchaseDate.toString().text.make(),
+                        ),
                         RaisedButton(
                             child: 'delete record'.tr.text.make(),
                             onPressed: () {
